@@ -1,0 +1,22 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<div class="list-group product-bread-a">
+  <a href="#" class="list-group-item product-bread-a" style="background:#dededd"> Select State</a>
+</div>  
+<ul class="list-group product-category-all">
+
+  <div *ngFor="let stat of states">
+
+   <li class="list-group-item"><span class="badge" ></span>
+        <a [routerLink]="['states',stat.state]">{{stat.state}}</a>
+    </li>
+    
+  </div>
+
+   
+  
+</ul>
+
+

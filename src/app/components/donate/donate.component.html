@@ -1,0 +1,154 @@
+<div class="cotainer">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form_main">
+        <h4 class="heading"><strong>Donate </strong> Items <span></span></h4>
+        <div class="form">
+          <form [formGroup]="donateForm" (ngSubmit)="save()">
+            <input type="text" id="itemName" placeholder="Item Name" formControlName="itemName" class="txt">
+            <span *ngIf="!donateForm.controls['itemName'].valid && donateForm.controls['itemName'].touched"> ItemName Required !! </span>
+
+            <input type="text" id="shortDescription" placeHolder="Item Description" formControlName="shortDescription" class="txt">
+            <span *ngIf="!donateForm.controls['shortDescription'].valid && donateForm.controls['shortDescription'].touched"> shortDescription Required !! </span>
+
+
+            <input type="text" id="itemDetails" placeholder="Item Details" formControlName="itemDetails" class="txt">
+            <div *ngIf="!donateForm.controls['itemDetails'].valid && donateForm.controls['itemDetails'].touched"> itemDetails Required !! </div>
+
+
+
+            <input type="text" id="category" placeholder="Category : Offered or Wanted" formControlName="category" class="txt">
+            <div *ngIf="!donateForm.controls['category'].valid && donateForm.controls['category'].touched"> category Required !! </div>
+
+
+
+            <input type="text" id="name" placeholder="Name" formControlName="name" class="txt">
+            <div *ngIf="!donateForm.controls['name'].valid && donateForm.controls['name'].touched"> Name Required !! </div>
+
+
+
+            <input type="text" id="contactInformation" placeholder="Email" formControlName="contactInformation" class="txt">
+            <div *ngIf="!donateForm.controls['contactInformation'].valid && donateForm.controls['contactInformation'].touch"> Email Empty or Invalid !! </div>
+
+
+
+            <div>
+              <select id="state"  name="state" [formControl]="donateForm.controls['state']" (change)="getCities(donateForm.value.state)" class="txt">
+				<option *ngFor="let item of states " [value]="item.state ">{{item.state}}</option>
+		    </select>
+              <label for="state">State</label>
+            </div>
+            <div>
+              <select id="city " name="city " [formControl]="donateForm.controls['city'] " class="txt">
+		        <option *ngFor="let item of cities " [value]="item.city ">{{item.city}}</option>
+		    </select>
+              <label for="city ">City</label>
+            </div>
+
+
+
+
+            <!--<span>
+<select (change)="selectItem($event)">
+      <option *ngFor=" let value of val">{{value.label}}</option>
+    </select>
+  </span>
+
+    <span *ngIf="cityflag">
+      <select (change)="selectItem($event)">
+      <option *ngFor=" let value of val">{{value.label}}</option>
+    </select>
+    </span>-->
+
+
+            <button type="submit" [disabled]="!donateForm.valid" class="txt2">Save</button>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+
+<form [formGroup]="donateForm" (ngSubmit)="save()">
+    <div>
+    <label for="itemName">ItemName</label>
+    <input type="text" id="itemName" placeholder="Item Name" formControlName="itemName" class="txt"> 
+    <div *ngIf="!donateForm.controls['itemName'].valid && donateForm.controls['itemName'].touched"> ItemName Required !! </div>
+    <br>
+    </div>
+
+    <div>
+    <label for="shortDescription">shortDescription</label>
+    <input type="text" id="shortDescription" formControlName="shortDescription" class="txt"> 
+    <div *ngIf="!donateForm.controls['shortDescription'].valid && donateForm.controls['shortDescription'].touched"> shortDescription Required !! </div>
+    <br>
+    </div>
+
+      <div>
+    <label for="itemDetails">itemDetails</label>
+    <input type="text" id="itemDetails" formControlName="itemDetails" class="txt"> 
+    <div *ngIf="!donateForm.controls['itemDetails'].valid && donateForm.controls['itemDetails'].touched"> itemDetails Required !! </div>
+    <br>
+    </div>
+
+      <div>
+    <label for="category">category</label>
+    <input type="text" id="category" formControlName="category" class="txt">
+    <div *ngIf="!donateForm.controls['category'].valid && donateForm.controls['category'].touched"> category Required !! </div>
+    <br>
+    </div>
+
+<div>
+    <label for="name">name</label>
+    <input type="text" id="name" formControlName="name" class="txt"> 
+    <div *ngIf="!donateForm.controls['name'].valid && donateForm.controls['name'].touched"> Name Required !! </div>
+    <br>
+    </div>
+
+<div>
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email" class="txt">
+    <div *ngIf="!donateForm.controls['email'].valid && donateForm.controls['email'].touch"> Email Empty or Invalid !! </div>
+   <br>
+ </div>
+<br>
+
+
+	<div>
+			<select id="state" name="state" [formControl]="donateForm.controls['state']"
+       (change)="getCities(donateForm.value.state)">
+				<option *ngFor="let item of states " [value]="item.state ">{{item.state}}</option>
+		    </select>
+		    <label for="state">State</label>
+	    </div>
+	    <div>
+		    <select id="city " name="city " [formControl]="donateForm.controls['city'] ">
+		        <option *ngFor="let item of cities " [value]="item.city ">{{item.city}}</option>
+		    </select>
+		    <label for="city ">City</label>
+		</div>
+
+
+
+
+<!--<span>
+<select (change)="selectItem($event)">
+      <option *ngFor=" let value of val">{{value.label}}</option>
+    </select>
+  </span>
+
+    <span *ngIf="cityflag">
+      <select (change)="selectItem($event)">
+      <option *ngFor=" let value of val">{{value.label}}</option>
+    </select>
+    </span>-->
+
+
+<!--<button type="submit" [disabled]="!donateForm.valid">Save</button>
+  </form>-->

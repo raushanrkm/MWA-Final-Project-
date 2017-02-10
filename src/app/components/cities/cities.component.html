@@ -1,0 +1,32 @@
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<div class="leftHanging">
+<div class="list-group product-bread-a">
+  <a href="#" class="list-group-item product-bread-a" style="background:#dededd"> Select city</a>
+</div>  
+<ul class="list-group product-category-all">
+
+    <div *ngFor="let citi of cities" >
+
+   <li class="list-group-item"><span class="badge" ></span>
+        <a [routerLink]="[citi.city]" >{{citi.city}}</a>
+    </li>
+    
+  </div>
+
+   
+  
+</ul>
+</div>
+
+
+
+
+
+  <router-outlet></router-outlet>
+
+
